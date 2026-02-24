@@ -1,0 +1,41 @@
+@use "./base.scss";
+@use "./variables.scss" as *;
+
+// === Explorer sidebar customizations ===
+
+// Collapsible: make fold button more visible
+.explorer .fold {
+  opacity: 1;
+}
+
+// Ellipsis for long filenames
+.explorer-content {
+  ul li > a {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+  }
+
+  .folder-container div > a,
+  .folder-container div > button span {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+// Thinner font weight for sidebar (folders + files)
+.folder-container {
+  & div > a {
+    font-weight: 400;
+  }
+
+  & div > button span {
+    font-weight: 400;
+  }
+}
+
+.explorer-content ul li > a {
+  font-weight: 400;
+}

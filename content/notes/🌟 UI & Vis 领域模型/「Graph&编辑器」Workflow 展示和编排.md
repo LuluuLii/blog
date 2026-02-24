@@ -1,0 +1,21 @@
+- workflow
+	- 事件 - 通知 - 对上下游引用值的影响
+	- 保存
+	- 表单校验 - 全局错误收集
+	- runContent
+	- editContent
+- 图交互
+	- 多选
+	- 节点插入
+	- 边的拖动删除、重连
+	- 增加 edge 的交互范围
+- ai worklfow
+	- 流程运行
+
+值得借鉴的框架
+- react flow github.com/xyflow/xyflow
+- 字节 flowgram.ai 
+	- 画布引擎
+	- 节点引擎
+	- 变量引擎
+	- 物料库

@@ -1,0 +1,11 @@
+- 官方文档
+	- 概览 [机器学习与 AI - Apple 开发者](https://developer.apple.com/cn/machine-learning/)
+	- 教程 https://developer.apple.com/tutorials/develop-in-swift/#new:-natural-language 
+- 模型
+	- GUI grounding
+		- paper https://machinelearning.apple.com/research/ferret-ui-2 ； https://machinelearning.apple.com/research/ferretui-mobile
+		- github https://github.com/apple/ml-ferret/tree/main/ferretui 
+- 技术博客
+	- Foundation Models：苹果设备端模型的边界探索 https://onevcat.com/2025/06/foundation-models/ 一些对 apple 端模型在实际开发中的性能等测试
+- 可参考项目
+	- queryable https://github.com/mazzzystar/Queryable 

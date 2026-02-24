@@ -1,0 +1,45 @@
+ImageData
+- [MDN-像素操作](https://developer.mozilla.org/zh-CN/docs/Web/API/Canvas_API/Tutorial/Pixel_manipulation_with_canvas)
+- [`ImageData`](https://developer.mozilla.org/zh-CN/docs/Web/API/ImageData)对象中存储着 canvas 对象真实的像素数据 
+	- 属性
+		- data: [Uint8ClampedArray](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8ClampedArray)  （an array of 8-bit unsigned integers clamped to 0–255）或 [`Float16Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float16Array)
+			- one-dimensional array containing the data in the RGBA order
+			- The order goes by rows from the top-left pixel to the bottom-right.
+		- colorSpace: 'srgb' | 'display-p3'
+		- width
+		- height
+	- 根据行、列读取某像素点的 R/G/B/A 值的公式：`imageData.data[50 * (imageData.width * 4) + 200 * 4 + 0 / 1 / 2 / 3]` 
+	- ctx.createImageData(width, height)
+	- ctx.getImageData(left, top, width, height);
+	- ctx.putImageData(myImageData, dx, dy);
+		- 可以用来对图片进行反色（减掉颜色的最大色值 255）或 [Grayscale](http://en.wikipedia.org/wiki/Grayscale)
+- drawImage()
+	- imageSmoothingEnabled 反锯齿，是否对缩放后的图片进行平滑处理
+- 保存图片
+	- [`canvas.toDataURL('image/jpeg', quality)`](https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLCanvasElement/toDataURL "canvas.toDataURL('image/jpeg', quality)") ： 返回一个包含被类型参数规定的图像表现格式的[数据链接](https://developer.mozilla.org/zh-CN/docs/Web/URI/Reference/Schemes/data)。返回的图片分辨率是 96 dpi。
+		- data: URL （数据链接）： 前缀为 `data:` 协议的 URL，其允许内容创建者向文档中嵌入小文件。
+			- `data:[<mediatype>][;base64],<data>`
+			- 图片转化为 base64 直接嵌入网页，就无需额外的发送请求图片。
+			- base64 编码后的图片会比原来的体积大三分之一左右。
+			- Data URL 形式的图片不会缓存下来，每次访问页面都要被下载一次。但我们可以将 Data URL 写入到 CSS 文件中随着 CSS 被缓存下来。
+	- [`canvas.toBlob(callback, type, encoderOptions)`](https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLCanvasElement/toBlob "canvas.toBlob(callback, type, encoderOptions)") ：创建 Blob 对象
+		- **Blob** 对象表示一个不可变、原始数据的类文件对象。它的数据可以按文本或二进制的格式进行读取，也可以转换成 ReadableSteam来用于数据操作。
+		- [前端实现下载功能](https://zhuanlan.zhihu.com/p/450942203)
+- 灰度图像
+	- 灰度图（grayscale）是把彩色图像的每个像素只用一个亮度值表示（通常用 0-255），常见做法是把 RGB 三通道按照一定权重合成为单一亮度值，然后把 R、G、B 都设为这个亮度值，保留 alpha（透明度）不变。
+	- 常用亮度（luminance / luma）计算公式：
+		- **简单平均**： `L = (R + G + B) / 3`（效果平淡）
+		- **感知亮度（常用）**： `L = 0.299*R + 0.587*G + 0.114*B`（Rec.601，用于标准SD/很多场景）
+			- Rec.601 是 **标准清晰度电视（SDTV）** 的色彩空间规范。它规定 RGB 转 YUV（或 YCbCr）时，亮度分量 YY 计算为：Y=0.299⋅R+0.587⋅G+0.114⋅BY=0.299⋅R+0.587⋅G+0.114⋅B
+			- 权重来源于 **CIE 1931 色彩匹配函数**，这是对人眼对不同波长光敏感度的实验测量结果。
+			- 在 Rec.601 所采用的 **RGB 原色坐标** 下，绿色的贡献最大（0.587），红色次之（0.299），蓝色最小（0.114）。这样合成的 YY 更接近人眼感知的“明暗感”。
+		- **更精确（现代，Rec.709）**： `L = 0.2126*R + 0.7152*G + 0.0722*B`
+			- 到了 HDTV（高分辨率电视）时代，Rec.709 定义了新的 **RGB 基色坐标**（色域和 Rec.601 略有不同）。因此重新计算得到的权重变成：
+			- Y=0.2126⋅R+0.7152⋅G+0.0722⋅BY=0.2126⋅R+0.7152⋅G+0.0722⋅B
+			- **绿色权重更高**（0.7152），因为在 Rec.709 原色系统下，绿色通道承担更多亮度信息。
+			- 这也解释了为什么在 HDTV 编码里，丢失部分色度信息后，画面仍然能保持较高的清晰度 —— 因为亮度通道主要依赖于绿色。
+	- 实现方式
+		- 基础：getImageData & putImageData
+		- **Web Worker + OffscreenCanvas**：把像素循环放到 Worker 中做，避免阻塞 UI。可以用 `OffscreenCanvas` 在 Worker 里做 `getImageData`/`putImageData` 或用 `transfer` 优化。
+		- **WebGL / fragment shader**：对于需要对视频帧或大量实时处理的场景，用 WebGL 写一个小 shader（片段着色器）做灰度，会比 JS 循环快很多。适合实时滤镜、摄像头流。
+		- **CSS filter（简单）**：如果只是显示灰度而不是导出图片，可直接用 CSS：`img { filter: grayscale(100%); }`或 `canvas { filter: grayscale(100%); }`。优点：实现极其简单、GPU 加速；缺点：不能直接拿到被滤镜化后的像素（`getImageData` 读取到的是原始像素，除非绘制到另一个 canvas 并且浏览器已把 filter 应用到绘制上，行为在不同浏览器间略有差异）。
