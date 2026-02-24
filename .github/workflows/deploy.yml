@@ -22,6 +22,15 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Restore file modification times from git
+        run: |
+          git ls-files -z content/ | while IFS= read -r -d '' file; do
+            timestamp=$(git log -1 --format="%ci" -- "$file" 2>/dev/null)
+            if [ -n "$timestamp" ]; then
+              touch -d "$timestamp" "$file"
+            fi
+          done
+
       - uses: actions/setup-node@v4
         with:
           node-version: 22
