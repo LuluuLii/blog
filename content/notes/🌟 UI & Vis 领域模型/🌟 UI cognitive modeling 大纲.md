@@ -1,3 +1,8 @@
+---
+date: 2026-02-02
+---
+
+
 做过：
 
 - spec-driven chart

@@ -1,3 +1,8 @@
+---
+date: 2026-01-03
+---
+
+
 “在做 AI Coding Agent 评测时，发现一次性 Prompt 很难覆盖复杂 UI，于是我把评测拆成 Plan / Act / Observe / Decide 的 Agent Loop，引入 Playwright 作为 Tool，并用多模态模型做视觉判断，同时引入状态存储来支持回放和重试。”
 
 ---

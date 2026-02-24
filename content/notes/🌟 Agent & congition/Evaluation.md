@@ -1,3 +1,8 @@
+---
+date: 2026-01-03
+---
+
+
 “evals are surprisingly often all you need.” --- Greg Brockman, an OpenAI cofounder
 ## 基础理论
 

@@ -1,3 +1,8 @@
+---
+date: 2025-09-15
+---
+
+
 ImageData
 - [MDN-像素操作](https://developer.mozilla.org/zh-CN/docs/Web/API/Canvas_API/Tutorial/Pixel_manipulation_with_canvas)
 - [`ImageData`](https://developer.mozilla.org/zh-CN/docs/Web/API/ImageData)对象中存储着 canvas 对象真实的像素数据 

@@ -1,3 +1,8 @@
+---
+date: 2026-01-02
+---
+
+
 ### Chapter 1 Why react
 
 react 出现之前的一些解决方案

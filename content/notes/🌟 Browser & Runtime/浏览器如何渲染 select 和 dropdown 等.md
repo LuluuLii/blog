@@ -1,3 +1,8 @@
+---
+date: 2026-02-07
+---
+
+
 为什么仅凭 DOM 难以理解网页
 select 和 dropdown 组件的特点和麻烦：
 - [聊聊Web中的下拉选项的事情 - 前端开发者学堂 (fedev.cn) - 前端开发社区](https://fedev.cn/html5/custom-a11y-select.html)

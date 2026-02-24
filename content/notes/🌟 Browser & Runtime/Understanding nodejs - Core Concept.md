@@ -1,3 +1,8 @@
+---
+date: 2026-01-03
+---
+
+
 - [Understanding Node.js: Core Concepts \| Udemy](https://www.udemy.com/course/understanding-nodejs-core-concepts/?utm_source=adwords&utm_medium=udemyads&utm_campaign=Search_Keyword_Beta_Prof_la.DE_cc.ROW-German&campaigntype=Search&portfolio=ROW-German&language=DE&product=Course&test=&audience=Keyword&topic=Node.js&priority=Beta&utm_content=deal4584&utm_term=_._ag_168594820001_._ad_750373428644_._kw_node+js+tutorial_._de_c_._dm__._pl__._ti_kwd-297927042897_._li_2158_._pd__._&matchtype=b&gad_source=1&gad_campaignid=21485730605&gbraid=0AAAAADROdO2cCz__oNDbky0GIq86vsPVk&gclid=CjwKCAjwlt7GBhAvEiwAKal0cr5_mqs1RrU4hr4sqsvP1IIZoJ52WMUQx4Yygu9xOKi0Jj0voM3uwhoC7GEQAvD_BwE&couponCode=PMNVD3025)
 - [Udemy - Understanding Node.js Core Concepts part1\_哔哩哔哩\_bilibili](https://www.bilibili.com/video/BV1ZqhhzjEf6/?spm_id_from=333.337.search-card.all.click&vd_source=b66f1735c03213e8bc76e17a6dc02569)
 ---

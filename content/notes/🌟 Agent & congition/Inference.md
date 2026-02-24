@@ -1,3 +1,8 @@
+---
+date: 2025-08-08
+---
+
+
 模型推理的一些概念和注意事项、优化方式
 - [推理LLM梳理 \| 李乾坤的博客](https://qiankunli.github.io/2024/09/21/reasoning_model.html)
 - [推理LLM梳理 \| 李乾坤的博客](https://qiankunli.github.io/2024/09/21/reasoning_model.html)

@@ -1,3 +1,8 @@
+---
+date: 2025-07-29
+---
+
+
 - 官方文档
 	- 概览 [机器学习与 AI - Apple 开发者](https://developer.apple.com/cn/machine-learning/)
 	- 教程 https://developer.apple.com/tutorials/develop-in-swift/#new:-natural-language 

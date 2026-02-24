@@ -1,3 +1,8 @@
+---
+date: 2025-12-04
+---
+
+
 [Bun is joining Anthropic \| Bun Blog](https://bun.com/blog/bun-joins-anthropic#bun-joins-anthropic)
 **what does software engineering even look like in two to three years?**
 AI coding tools are getting really good, really fast and they're using Bun’s single-file executables to ship CLIs and agents that run everywhere.

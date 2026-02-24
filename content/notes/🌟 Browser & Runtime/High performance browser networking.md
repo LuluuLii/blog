@@ -1,3 +1,8 @@
+---
+date: 2026-02-24
+---
+
+
 [High Performance Browser Networking (O'Reilly)](https://hpbn.co/#toc)
 
 ### Networking 101
