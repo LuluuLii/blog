@@ -1,6 +1,6 @@
 #!/bin/bash
 VAULT="$HOME/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian Vault"
-SITE="$HOME/Developers/blog"
+SITE="$HOME/Developer/blog"
 
 # Sync public content only
 rsync -av --delete "$VAULT/notes/"  "$SITE/content/notes/"

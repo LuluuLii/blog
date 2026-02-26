@@ -7,7 +7,7 @@ Personal knowledge base powered by [Quartz v4](https://quartz.jzhao.xyz/), synce
 ## Architecture
 
 ```
-Obsidian Vault (iCloud)                   This Repo (~/Developers/blog)
+Obsidian Vault (iCloud)                   This Repo (~/Developer/blog)
   notes/       ──rsync──>  content/notes/
   images/      ──rsync──>  content/images/
   personal/    (not synced)
@@ -41,14 +41,14 @@ draft: true
 
 ```bash
 # Sync content from Obsidian vault
-~/Developers/blog/sync.sh
+~/Developer/blog/sync.sh
 
 # (Optional) Preview locally
-cd ~/Developers/blog && npx quartz build --serve
+cd ~/Developer/blog && npx quartz build --serve
 # Then open http://localhost:8080
 
 # Commit and push
-cd ~/Developers/blog
+cd ~/Developer/blog
 git add -A
 git commit -m "update notes"
 git push
