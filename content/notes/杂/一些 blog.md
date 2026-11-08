@@ -1,0 +1,4 @@
+- [Blog \| Armin Ronacher's Thoughts and Writings](https://lucumr.pocoo.org/)
+- [{ Mario Zechner }](https://mariozechner.at/)
+- [Posts \| Lil'Log](https://lilianweng.github.io/posts/)
+- [Posts \| thesephist.com](https://thesephist.com/posts/) notion工程师

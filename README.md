@@ -7,7 +7,7 @@ Personal knowledge base powered by [Quartz v4](https://quartz.jzhao.xyz/), synce
 ## Architecture
 
 ```
-Obsidian Vault (iCloud)                   This Repo (~/Developer/blog)
+Obsidian Vault (iCloud)                   This Repo (~/Developer/github.com/LuluuLii/blog)
   notes/       ──rsync──>  content/notes/
   images/      ──rsync──>  content/images/
   personal/    (not synced)
@@ -41,20 +41,24 @@ draft: true
 
 ```bash
 # Sync content from Obsidian vault
-~/Developer/blog/sync.sh
+~/Developer/github.com/LuluuLii/blog/sync.sh
 
 # (Optional) Preview locally
-cd ~/Developer/blog && npx quartz build --serve
+cd ~/Developer/github.com/LuluuLii/blog && npx quartz build --serve
 # Then open http://localhost:8080
 
 # Commit and push
-cd ~/Developer/blog
+cd ~/Developer/github.com/LuluuLii/blog
 git add -A
 git commit -m "update notes"
 git push
 ```
 
 GitHub Actions will automatically build and deploy to Pages.
+
+The weekly maintenance task runs Saturdays at 14:00 (Asia/Shanghai) in the Codex chat. It reviews notes, syncs changes, validates the build, and commits/pushes updates. `sync.sh` itself only copies files; it does not commit or publish.
+
+`draft: true` hides a note from the generated website, but its source remains in the public Git repository. Keep notes containing internal information out of the repository with `.publishignore` (paths relative to the vault’s `notes/` directory). The sync removes excluded publication copies while preserving the Obsidian source. It stops if source directories are missing or iCloud placeholder files remain.
 
 ### 3. Add a project to publish (future)
 
@@ -69,6 +73,7 @@ rsync -av "$VAULT/projects/YourProject/" "$SITE/content/projects/YourProject/"
 | File | Purpose |
 |------|---------|
 | `sync.sh` | Syncs public content from Obsidian vault |
+| `.publishignore` | Notes excluded entirely from the public repository |
 | `quartz.config.ts` | Site title, locale, plugins, theme |
 | `quartz.layout.ts` | Page layout (sidebar, footer, recent notes) |
 | `quartz/styles/custom.scss` | Custom CSS overrides |
